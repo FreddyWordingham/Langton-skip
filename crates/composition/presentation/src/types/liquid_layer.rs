@@ -13,7 +13,7 @@ impl TilemapLayer for LiquidLayer {
     type Source = Map;
 
     fn size(source: &Self::Source) -> UVec2 {
-        source.terrain().size()
+        source.liquid().size()
     }
 
     fn tile_data(source: &Self::Source, coord: UVec2) -> Option<TileData> {
@@ -21,11 +21,11 @@ impl TilemapLayer for LiquidLayer {
     }
 
     fn is_dirty(source: &Self::Source) -> bool {
-        source.liquid().is_dirty()
+        source.liquid_is_dirty()
     }
 
     fn drain_dirty(source: &mut Self::Source) -> Vec<UVec2> {
-        source.liquid_mut().drain_dirty().collect()
+        source.liquid_drain_dirty().collect()
     }
 }
 

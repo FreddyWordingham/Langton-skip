@@ -21,11 +21,11 @@ impl TilemapLayer for TerrainLayer {
     }
 
     fn is_dirty(source: &Self::Source) -> bool {
-        source.terrain().is_dirty()
+        source.terrain_is_dirty()
     }
 
     fn drain_dirty(source: &mut Self::Source) -> Vec<UVec2> {
-        source.terrain_mut().drain_dirty().collect()
+        source.terrain_drain_dirty().collect()
     }
 }
 

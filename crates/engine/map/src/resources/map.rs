@@ -33,11 +33,27 @@ impl Map {
         &self.liquid
     }
 
-    pub fn terrain_mut(&mut self) -> &mut DirtyTrackingGrid<Option<Terrain>> {
+    pub fn terrain_is_dirty(&self) -> bool {
+        self.terrain.is_dirty()
+    }
+
+    pub fn terrain_drain_dirty(&mut self) -> impl Iterator<Item = UVec2> + '_ {
+        self.terrain.drain_dirty()
+    }
+
+    pub fn liquid_is_dirty(&self) -> bool {
+        self.liquid.is_dirty()
+    }
+
+    pub fn liquid_drain_dirty(&mut self) -> impl Iterator<Item = UVec2> + '_ {
+        self.liquid.drain_dirty()
+    }
+
+    pub(crate) fn terrain_mut(&mut self) -> &mut DirtyTrackingGrid<Option<Terrain>> {
         &mut self.terrain
     }
 
-    pub fn liquid_mut(&mut self) -> &mut DirtyTrackingGrid<Option<Liquid>> {
+    pub(crate) fn liquid_mut(&mut self) -> &mut DirtyTrackingGrid<Option<Liquid>> {
         &mut self.liquid
     }
 }

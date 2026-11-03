@@ -20,9 +20,5 @@ arc_tick = { workspace = true }
 bevy = { workspace = true }
 
 
-arc_content = { workspace = true }
-rand = { workspace = true }
-
-
 [lints]
 workspace = true

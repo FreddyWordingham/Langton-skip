@@ -338,13 +338,11 @@ dependencies = [
 name = "arc_engine"
 version = "0.0.0"
 dependencies = [
- "arc_content",
  "arc_map",
  "arc_random",
  "arc_spatial",
  "arc_tick",
  "bevy",
- "rand",
 ]
 
 [[package]]
@@ -443,7 +441,6 @@ dependencies = [
  "arc_button",
  "arc_content",
  "arc_draw",
- "arc_theme",
  "bevy",
 ]
 
@@ -474,7 +471,6 @@ name = "arc_time"
 version = "0.0.0"
 dependencies = [
  "arc_button",
- "arc_theme",
  "arc_tick",
  "bevy",
 ]
