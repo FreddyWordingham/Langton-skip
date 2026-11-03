@@ -1,9 +1,7 @@
-use bevy::prelude::*;
+pub trait Draw: Sized + 'static {
+    const ALL: &'static [Self];
 
-pub trait Draw {
     fn name(&self) -> &'static str;
 
-    fn sprite_path(&self) -> &'static str;
-
-    fn color(&self) -> Color;
+    fn menu_sprite_path(&self) -> &'static str;
 }

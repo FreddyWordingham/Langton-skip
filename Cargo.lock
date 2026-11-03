@@ -305,7 +305,16 @@ dependencies = [
 name = "arc_content"
 version = "0.0.0"
 dependencies = [
+ "arc_count",
+ "arc_direction",
  "arc_draw",
+ "bevy",
+]
+
+[[package]]
+name = "arc_count"
+version = "0.0.0"
+dependencies = [
  "bevy",
 ]
 
@@ -328,9 +337,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "arc_direction"
+version = "0.0.0"
+dependencies = [
+ "bevy",
+]
+
+[[package]]
 name = "arc_draw"
 version = "0.0.0"
 dependencies = [
+ "arc_direction",
  "bevy",
 ]
 

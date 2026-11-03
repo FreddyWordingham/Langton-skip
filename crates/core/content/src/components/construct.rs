@@ -1,35 +1,35 @@
+use arc_direction::Direction;
 use arc_draw::Draw;
 use bevy::prelude::*;
 
 #[derive(Component, Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum Construct {
-    Pumpjack,
     Drill,
 }
 
 impl Construct {
-    pub const ALL: [Self; 2] = [Self::Pumpjack, Self::Drill];
+    fn sprite_path(&self, direction: Direction) -> &'static str {
+        match direction {
+            Direction::North => "sprites/buildings/drill/north.png",
+            Direction::East => "sprites/buildings/drill/east.png",
+            Direction::South => "sprites/buildings/drill/south.png",
+            Direction::West => "sprites/buildings/drill/west.png",
+        }
+    }
 }
 
 impl Draw for Construct {
+    const ALL: &[Self] = &[Self::Drill];
+
     fn name(&self) -> &'static str {
         match self {
-            Self::Pumpjack => "Pumpjack",
             Self::Drill => "Drill",
         }
     }
 
-    fn sprite_path(&self) -> &'static str {
+    fn menu_sprite_path(&self) -> &'static str {
         match self {
-            Self::Pumpjack => "sprites/tiles/machine/pumpjack.png",
-            Self::Drill => "sprites/tiles/machine/drill.png",
-        }
-    }
-
-    fn color(&self) -> Color {
-        match self {
-            Self::Pumpjack => Color::WHITE,
-            Self::Drill => Color::WHITE,
+            Self::Drill => "sprites/buildings/drill/north.png",
         }
     }
 }

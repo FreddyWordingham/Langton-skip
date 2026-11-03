@@ -9,36 +9,36 @@ pub(crate) fn spawn_selection_buttons(parent: &mut ChildSpawnerCommands<'_>, ass
     match spawn_tab {
         SpawnTab::Terrain => {
             for terrain in Terrain::ALL {
-                spawn_button(parent, assets, &terrain).observe(move |_: On<Activate>, mut commands: Commands| {
-                    commands.insert_resource(ActiveSpawnSelection::Terrain(terrain));
+                spawn_button(parent, assets, terrain).observe(move |_: On<Activate>, mut commands: Commands| {
+                    commands.insert_resource(ActiveSpawnSelection::Terrain(*terrain));
                 });
             }
         }
         SpawnTab::Liquid => {
             for liquid in Liquid::ALL {
-                spawn_button(parent, assets, &liquid).observe(move |_: On<Activate>, mut commands: Commands| {
-                    commands.insert_resource(ActiveSpawnSelection::Liquid(liquid));
+                spawn_button(parent, assets, liquid).observe(move |_: On<Activate>, mut commands: Commands| {
+                    commands.insert_resource(ActiveSpawnSelection::Liquid(*liquid));
                 });
             }
         }
         SpawnTab::Feature => {
             for feature in Feature::ALL {
-                spawn_button(parent, assets, &feature).observe(move |_: On<Activate>, mut commands: Commands| {
-                    commands.insert_resource(ActiveSpawnSelection::Feature(feature));
+                spawn_button(parent, assets, feature).observe(move |_: On<Activate>, mut commands: Commands| {
+                    commands.insert_resource(ActiveSpawnSelection::Feature(*feature));
                 });
             }
         }
         SpawnTab::Construct => {
             for construct in Construct::ALL {
-                spawn_button(parent, assets, &construct).observe(move |_: On<Activate>, mut commands: Commands| {
-                    commands.insert_resource(ActiveSpawnSelection::Construct(construct));
+                spawn_button(parent, assets, construct).observe(move |_: On<Activate>, mut commands: Commands| {
+                    commands.insert_resource(ActiveSpawnSelection::Construct(*construct));
                 });
             }
         }
         SpawnTab::Item => {
             for item in Item::ALL {
-                spawn_button(parent, assets, &item).observe(move |_: On<Activate>, mut commands: Commands| {
-                    commands.insert_resource(ActiveSpawnSelection::Item(item));
+                spawn_button(parent, assets, item).observe(move |_: On<Activate>, mut commands: Commands| {
+                    commands.insert_resource(ActiveSpawnSelection::Item(*item));
                 });
             }
         }
@@ -62,7 +62,7 @@ fn spawn_button<'a>(parent: &'a mut ChildSpawnerCommands<'_>, assets: &AssetServ
                     height: px(16.0),
                     ..default()
                 },
-                ImageNode::new(assets.load(draw.sprite_path())).with_color(draw.color())
+                ImageNode::new(assets.load(draw.menu_sprite_path()))
             )
         ],
     ))

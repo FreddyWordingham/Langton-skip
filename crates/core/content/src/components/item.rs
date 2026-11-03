@@ -1,35 +1,34 @@
+use arc_count::Count;
 use arc_draw::Draw;
 use bevy::prelude::*;
 
 #[derive(Component, Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum Item {
-    IronOre,
-    Methane,
+    Iron,
 }
 
 impl Item {
-    pub const ALL: [Self; 2] = [Self::IronOre, Self::Methane];
+    fn sprite_path(&self, count: Count) -> &'static str {
+        match count {
+            Count::Single => "sprites/buildings/drill/single.png",
+            Count::Few => "sprites/buildings/drill/few.png",
+            Count::Many => "sprites/buildings/drill/many.png",
+        }
+    }
 }
 
 impl Draw for Item {
+    const ALL: &'static [Self] = &[Self::Iron];
+
     fn name(&self) -> &'static str {
         match self {
-            Self::IronOre => "Iron Ore",
-            Self::Methane => "Methane",
+            Self::Iron => "Iron",
         }
     }
 
-    fn sprite_path(&self) -> &'static str {
+    fn menu_sprite_path(&self) -> &'static str {
         match self {
-            Self::IronOre => "sprites/tiles/item/solid_raw.png",
-            Self::Methane => "sprites/tiles/item/gas.png",
-        }
-    }
-
-    fn color(&self) -> Color {
-        match self {
-            Self::IronOre => Color::srgb(0.5, 0.5, 1.0),
-            Self::Methane => Color::srgb(0.8, 0.6, 0.7),
+            Self::Iron => "sprites/items/iron/few.png",
         }
     }
 }

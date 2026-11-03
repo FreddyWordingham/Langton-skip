@@ -7,10 +7,6 @@ pub enum Terrain {
     Soil,
 }
 
-impl Terrain {
-    pub const ALL: [Self; 2] = [Self::Soil, Self::Sand];
-}
-
 impl Tile for Terrain {
     fn tile_data(&self, coord: UVec2) -> TileData {
         let atlas_x = coord.x % 32;
@@ -31,6 +27,8 @@ impl Tile for Terrain {
 }
 
 impl Draw for Terrain {
+    const ALL: &'static [Self] = &[Self::Soil, Self::Sand];
+
     fn name(&self) -> &'static str {
         match self {
             Self::Soil => "Soil",
@@ -38,17 +36,10 @@ impl Draw for Terrain {
         }
     }
 
-    fn sprite_path(&self) -> &'static str {
+    fn menu_sprite_path(&self) -> &'static str {
         match self {
-            Self::Soil => "sprites/tiles/terrain/misc.png",
-            Self::Sand => "sprites/tiles/terrain/misc.png",
-        }
-    }
-
-    fn color(&self) -> Color {
-        match self {
-            Self::Soil => Color::srgb(0.3, 0.7, 0.4),
-            Self::Sand => Color::srgb(0.9, 0.8, 0.5),
+            Self::Soil => "sprites/tiles/terrain/soil.png",
+            Self::Sand => "sprites/tiles/terrain/sand.png",
         }
     }
 }

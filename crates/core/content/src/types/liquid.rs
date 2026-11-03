@@ -6,10 +6,6 @@ pub enum Liquid {
     Water,
 }
 
-impl Liquid {
-    pub const ALL: [Self; 1] = [Self::Water];
-}
-
 impl Tile for Liquid {
     fn tile_data(&self, _coord: UVec2) -> TileData {
         match self {
@@ -22,21 +18,17 @@ impl Tile for Liquid {
 }
 
 impl Draw for Liquid {
+    const ALL: &'static [Self] = &[Self::Water];
+
     fn name(&self) -> &'static str {
         match self {
             Self::Water => "Water",
         }
     }
 
-    fn sprite_path(&self) -> &'static str {
+    fn menu_sprite_path(&self) -> &'static str {
         match self {
-            Self::Water => "sprites/tiles/terrain/misc.png",
-        }
-    }
-
-    fn color(&self) -> Color {
-        match self {
-            Self::Water => Color::srgb(0.3, 0.7, 0.9),
+            Self::Water => "sprites/tiles/liquids/water.png",
         }
     }
 }
