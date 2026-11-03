@@ -389,6 +389,7 @@ dependencies = [
 name = "arc_input"
 version = "0.0.0"
 dependencies = [
+ "arc_keyboard",
  "bevy",
 ]
 
@@ -397,6 +398,14 @@ name = "arc_item"
 version = "0.0.0"
 dependencies = [
  "arc_draw",
+ "bevy",
+]
+
+[[package]]
+name = "arc_keyboard"
+version = "0.0.0"
+dependencies = [
+ "arc_camera",
  "bevy",
 ]
 

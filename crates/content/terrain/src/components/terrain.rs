@@ -13,13 +13,17 @@ impl Terrain {
 
 impl Tile for Terrain {
     fn tile_data(&self, coord: UVec2) -> TileData {
+        let atlas_x = coord.x % 32;
+        let atlas_y = (32 - (coord.y % 32)) % 32;
+        let index = (atlas_x + atlas_y * 32) as u16;
+
         match self {
             Self::Sand => TileData {
-                tileset_index: ((coord.x % 32) + ((32 - (coord.y % 32)) * 32)) as u16,
+                tileset_index: index,
                 ..default()
             },
             Self::Soil => TileData {
-                tileset_index: 1024 + ((coord.x % 32) + ((32 - (coord.y % 32)) * 32)) as u16,
+                tileset_index: 1024 + index,
                 ..default()
             },
         }
