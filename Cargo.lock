@@ -310,6 +310,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "arc_cursor"
+version = "0.0.0"
+dependencies = [
+ "arc_camera",
+ "arc_draw",
+ "arc_map",
+ "bevy",
+]
+
+[[package]]
 name = "arc_dev"
 version = "0.0.0"
 dependencies = [
@@ -370,6 +380,7 @@ dependencies = [
 name = "arc_input"
 version = "0.0.0"
 dependencies = [
+ "arc_cursor",
  "arc_keyboard",
  "bevy",
 ]

@@ -12,6 +12,7 @@ authors.workspace = true
 
 
 [dependencies]
+arc_cursor = { workspace = true }
 arc_keyboard = { workspace = true }
 
 bevy = { workspace = true }

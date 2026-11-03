@@ -43,6 +43,7 @@ arc_spatial = { version = "0.0.0", path = "crates/engine/spatial" }
 arc_tick = { version = "0.0.0", path = "crates/engine/tick" }
 
 # Input
+arc_cursor = { version = "0.0.0", path = "crates/input/cursor" }
 arc_keyboard = { version = "0.0.0", path = "crates/input/keyboard" }
 
 # Presentation
