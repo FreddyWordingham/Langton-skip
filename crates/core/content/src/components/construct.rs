@@ -1,5 +1,5 @@
 use arc_direction::Direction;
-use arc_draw::Draw;
+use arc_draw::MenuItem;
 use bevy::prelude::*;
 
 #[derive(Component, Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -18,10 +18,10 @@ impl Construct {
     }
 }
 
-impl Draw for Construct {
+impl MenuItem for Construct {
     const ALL: &[Self] = &[Self::Drill];
 
-    fn name(&self) -> &'static str {
+    fn label(&self) -> &'static str {
         match self {
             Self::Drill => "Drill",
         }

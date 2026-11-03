@@ -5,5 +5,5 @@ mod traits;
 
 pub use crate::{
     constants::{TILE_SIZE, TILE_SIZE_UVEC2, TILE_SIZE_VEC2},
-    traits::{Draw, Tile},
+    traits::{MenuItem, Tile},
 };

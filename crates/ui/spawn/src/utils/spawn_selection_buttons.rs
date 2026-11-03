@@ -1,6 +1,6 @@
 use arc_button::{button, button_node};
 use arc_content::{Construct, Feature, Item, Liquid, Terrain};
-use arc_draw::Draw;
+use arc_draw::MenuItem;
 use bevy::{prelude::*, ui_widgets::Activate};
 
 use crate::resources::{ActiveSpawnSelection, SpawnTab};
@@ -45,7 +45,11 @@ pub(crate) fn spawn_selection_buttons(parent: &mut ChildSpawnerCommands<'_>, ass
     }
 }
 
-fn spawn_button<'a>(parent: &'a mut ChildSpawnerCommands<'_>, assets: &AssetServer, draw: &impl Draw) -> EntityCommands<'a> {
+fn spawn_button<'a>(
+    parent: &'a mut ChildSpawnerCommands<'_>,
+    assets: &AssetServer,
+    draw: &impl MenuItem,
+) -> EntityCommands<'a> {
     parent.spawn((
         button(Node {
             width: percent(100.0),
@@ -55,7 +59,7 @@ fn spawn_button<'a>(parent: &'a mut ChildSpawnerCommands<'_>, assets: &AssetServ
             ..button_node()
         }),
         children![
-            Text::new(draw.name()),
+            Text::new(draw.label()),
             (
                 Node {
                     width: px(16.0),

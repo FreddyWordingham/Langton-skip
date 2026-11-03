@@ -1,5 +1,5 @@
 use arc_count::Count;
-use arc_draw::Draw;
+use arc_draw::MenuItem;
 use bevy::prelude::*;
 
 #[derive(Component, Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -17,10 +17,10 @@ impl Item {
     }
 }
 
-impl Draw for Item {
+impl MenuItem for Item {
     const ALL: &'static [Self] = &[Self::Iron];
 
-    fn name(&self) -> &'static str {
+    fn label(&self) -> &'static str {
         match self {
             Self::Iron => "Iron",
         }

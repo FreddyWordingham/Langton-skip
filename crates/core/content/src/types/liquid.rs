@@ -1,4 +1,4 @@
-use arc_draw::{Draw, Tile};
+use arc_draw::{MenuItem, Tile};
 use bevy::{prelude::*, sprite_render::TileData};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -17,10 +17,10 @@ impl Tile for Liquid {
     }
 }
 
-impl Draw for Liquid {
+impl MenuItem for Liquid {
     const ALL: &'static [Self] = &[Self::Water];
 
-    fn name(&self) -> &'static str {
+    fn label(&self) -> &'static str {
         match self {
             Self::Water => "Water",
         }

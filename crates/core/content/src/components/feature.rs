@@ -1,4 +1,4 @@
-use arc_draw::Draw;
+use arc_draw::MenuItem;
 use bevy::prelude::*;
 
 use crate::components::Item;
@@ -8,10 +8,10 @@ pub enum Feature {
     Ore(Item),
 }
 
-impl Draw for Feature {
+impl MenuItem for Feature {
     const ALL: &'static [Self] = &[Self::Ore(Item::Iron)];
 
-    fn name(&self) -> &'static str {
+    fn label(&self) -> &'static str {
         match self {
             Self::Ore(item) => match item {
                 Item::Iron => "Iron Ore",

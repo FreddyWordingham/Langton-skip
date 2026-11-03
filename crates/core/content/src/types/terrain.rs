@@ -1,4 +1,4 @@
-use arc_draw::{Draw, Tile};
+use arc_draw::{MenuItem, Tile};
 use bevy::{prelude::*, sprite_render::TileData};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -26,10 +26,10 @@ impl Tile for Terrain {
     }
 }
 
-impl Draw for Terrain {
+impl MenuItem for Terrain {
     const ALL: &'static [Self] = &[Self::Soil, Self::Sand];
 
-    fn name(&self) -> &'static str {
+    fn label(&self) -> &'static str {
         match self {
             Self::Soil => "Soil",
             Self::Sand => "Sand",
