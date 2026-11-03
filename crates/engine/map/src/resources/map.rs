@@ -1,4 +1,4 @@
-use arc_content::Terrain;
+use arc_content::{Liquid, Terrain};
 use arc_draw::TILE_SIZE_VEC2;
 use arc_grid::DirtyTrackingGrid;
 use bevy::prelude::*;
@@ -6,12 +6,14 @@ use bevy::prelude::*;
 #[derive(Resource)]
 pub struct Map {
     terrain: DirtyTrackingGrid<Option<Terrain>>,
+    liquid: DirtyTrackingGrid<Option<Liquid>>,
 }
 
 impl Map {
     pub fn new(size: UVec2) -> Self {
         Self {
             terrain: DirtyTrackingGrid::new(size, Some(Terrain::Soil)),
+            liquid: DirtyTrackingGrid::new(size, Some(Liquid::Water)),
         }
     }
 
@@ -27,7 +29,15 @@ impl Map {
         &self.terrain
     }
 
+    pub fn liquid(&self) -> &DirtyTrackingGrid<Option<Liquid>> {
+        &self.liquid
+    }
+
     pub fn terrain_mut(&mut self) -> &mut DirtyTrackingGrid<Option<Terrain>> {
         &mut self.terrain
+    }
+
+    pub fn liquid_mut(&mut self) -> &mut DirtyTrackingGrid<Option<Liquid>> {
+        &mut self.liquid
     }
 }
