@@ -297,6 +297,7 @@ dependencies = [
 name = "arc_camera"
 version = "0.0.0"
 dependencies = [
+ "arc_map",
  "bevy",
 ]
 
@@ -414,6 +415,7 @@ dependencies = [
 name = "arc_map"
 version = "0.0.0"
 dependencies = [
+ "arc_draw",
  "arc_grid",
  "arc_terrain",
  "bevy",

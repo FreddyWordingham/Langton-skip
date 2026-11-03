@@ -1,3 +1,4 @@
+use arc_draw::TILE_SIZE_VEC2;
 use arc_grid::DirtyTrackingGrid;
 use arc_terrain::Terrain;
 use bevy::prelude::*;
@@ -12,6 +13,14 @@ impl Map {
         Self {
             terrain: DirtyTrackingGrid::new(size, Some(Terrain::Soil)),
         }
+    }
+
+    pub fn size(&self) -> UVec2 {
+        self.terrain.size()
+    }
+
+    pub fn center(&self) -> Vec2 {
+        self.terrain.size().as_vec2() * 0.5 * TILE_SIZE_VEC2
     }
 
     pub fn terrain(&self) -> &DirtyTrackingGrid<Option<Terrain>> {

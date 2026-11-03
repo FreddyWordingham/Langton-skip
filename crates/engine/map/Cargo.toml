@@ -12,6 +12,7 @@ authors.workspace = true
 
 
 [dependencies]
+arc_draw = { workspace = true }
 arc_grid = { workspace = true }
 arc_terrain = { workspace = true }
 
