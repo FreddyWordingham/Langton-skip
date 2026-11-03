@@ -1,7 +1,7 @@
 use arc_button::{button, button_node};
 use bevy::{prelude::*, ui_widgets::Activate};
 
-use crate::{resources::ShowSpawnUi, types::SpawnTab};
+use crate::resources::SpawnTab;
 
 pub(crate) fn spawn_tab_buttons(parent: &mut ChildSpawnerCommands<'_>) {
     for tab in SpawnTab::ALL {
@@ -15,7 +15,7 @@ pub(crate) fn spawn_tab_buttons(parent: &mut ChildSpawnerCommands<'_>) {
                 children![Text::new(tab.as_str())],
             ))
             .observe(move |_: On<Activate>, mut commands: Commands| {
-                commands.insert_resource_if_neq(ShowSpawnUi(tab));
+                commands.insert_resource_if_neq(tab);
             });
     }
 }

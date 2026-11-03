@@ -4,5 +4,6 @@ use bevy::prelude::*;
 pub enum SpawnUpdate {
     Spawn,
     Sync,
+    Trigger,
     Despawn,
 }

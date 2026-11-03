@@ -440,7 +440,9 @@ version = "0.0.0"
 dependencies = [
  "arc_button",
  "arc_content",
+ "arc_cursor",
  "arc_draw",
+ "arc_map",
  "bevy",
 ]
 

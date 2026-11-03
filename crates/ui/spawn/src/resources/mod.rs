@@ -1,5 +1,5 @@
 mod active_spawn_selection;
-mod show_spawn_ui;
+mod spawn_tab;
 
 pub use active_spawn_selection::ActiveSpawnSelection;
-pub use show_spawn_ui::ShowSpawnUi;
+pub use spawn_tab::SpawnTab;

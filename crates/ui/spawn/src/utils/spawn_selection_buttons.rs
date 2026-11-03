@@ -3,7 +3,7 @@ use arc_content::{Construct, Feature, Item, Liquid, Terrain};
 use arc_draw::Draw;
 use bevy::{prelude::*, ui_widgets::Activate};
 
-use crate::{resources::ActiveSpawnSelection, types::SpawnTab};
+use crate::resources::{ActiveSpawnSelection, SpawnTab};
 
 pub(crate) fn spawn_selection_buttons(parent: &mut ChildSpawnerCommands<'_>, assets: &AssetServer, spawn_tab: SpawnTab) {
     match spawn_tab {

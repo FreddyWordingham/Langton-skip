@@ -5,11 +5,10 @@ mod plugin;
 mod resources;
 mod sets;
 mod systems;
-mod types;
 mod utils;
 
 pub use crate::{
     plugin::SpawnPlugin,
-    resources::{ActiveSpawnSelection, ShowSpawnUi},
+    resources::{ActiveSpawnSelection, SpawnTab},
     sets::SpawnUpdate,
 };

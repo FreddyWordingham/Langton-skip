@@ -23,11 +23,6 @@ impl Plugin for CursorPlugin {
                 update_cursor.run_if(resource_exists::<Map>),
             )
                 .in_set(CursorPreUpdate::Input),
-        )
-        .add_systems(Update, report_cursor.run_if(resource_changed::<Cursor>));
+        );
     }
-}
-
-fn report_cursor(cursor: Res<Cursor>) {
-    println!("Cursor: {:?} - {:?}", cursor.prev(), cursor.curr());
 }
