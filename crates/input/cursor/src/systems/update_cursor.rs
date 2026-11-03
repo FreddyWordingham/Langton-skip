@@ -1,17 +1,33 @@
 use arc_camera::MainCamera;
 use arc_draw::TILE_SIZE;
 use arc_map::Map;
-use bevy::{prelude::*, window::PrimaryWindow};
+use bevy::{
+    picking::{hover::HoverMap, pointer::PointerId},
+    prelude::*,
+    window::PrimaryWindow,
+};
 
 use crate::resources::Cursor;
 
 pub(crate) fn update_cursor(
     mut cursor: ResMut<Cursor>,
+    hover_map: Res<HoverMap>,
     map: Res<Map>,
+    ui_nodes: Query<(), With<Node>>,
     primary_window: Single<&Window, With<PrimaryWindow>>,
     main_camera: Single<(&Camera, &GlobalTransform), With<MainCamera>>,
 ) {
     let (camera, camera_transform) = *main_camera;
+
+    let over_ui = hover_map
+        .get(&PointerId::Mouse)
+        .is_some_and(|hits| hits.keys().any(|&ent| ui_nodes.contains(ent)));
+    if over_ui {
+        if cursor.curr() != None && cursor.prev() != None {
+            cursor.set_curr(None);
+        }
+        return;
+    }
 
     let coord = primary_window
         .cursor_position()
@@ -29,5 +45,7 @@ pub(crate) fn update_cursor(
             Some(coord)
         });
 
-    cursor.set_curr(coord);
+    if cursor.curr() != coord && cursor.prev() != coord {
+        cursor.set_curr(coord);
+    }
 }

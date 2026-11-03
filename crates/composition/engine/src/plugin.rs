@@ -16,7 +16,7 @@ impl Plugin for EnginePlugin {
 
 fn setup(mut create_map_msg: MessageWriter<CreateMap>) {
     create_map_msg.write(CreateMap {
-        map: Map::new(uvec2(1024, 1024)),
+        map: Map::new(uvec2(16, 16)),
     });
 }
 

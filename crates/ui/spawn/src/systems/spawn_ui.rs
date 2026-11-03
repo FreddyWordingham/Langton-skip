@@ -9,6 +9,7 @@ pub(crate) fn spawn_ui(mut commands: Commands) {
     commands
         .spawn((
             SpawnUi,
+            Pickable::IGNORE,
             Node {
                 position_type: PositionType::Absolute,
                 width: px(200.0),
@@ -22,6 +23,7 @@ pub(crate) fn spawn_ui(mut commands: Commands) {
             parent
                 .spawn((
                     SpawnTabPanel,
+                    Pickable::IGNORE,
                     Node {
                         width: percent(100.0),
                         height: auto(),
@@ -35,6 +37,7 @@ pub(crate) fn spawn_ui(mut commands: Commands) {
                 });
             parent.spawn((
                 SpawnSelectionPanel,
+                Pickable::IGNORE,
                 Node {
                     width: percent(100.0),
                     height: percent(100.0),

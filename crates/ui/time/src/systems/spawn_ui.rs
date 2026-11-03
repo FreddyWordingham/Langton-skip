@@ -10,6 +10,7 @@ pub(crate) fn spawn_ui(mut commands: Commands, assets: Res<AssetServer>, tick_ra
     commands
         .spawn((
             TimeUi,
+            Pickable::IGNORE,
             Node {
                 position_type: PositionType::Absolute,
                 top: px(5.0),
