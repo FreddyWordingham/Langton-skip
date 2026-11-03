@@ -1,4 +1,4 @@
-use arc_spatial::TILE_SIZE;
+use arc_draw::TILE_SIZE;
 use bevy::prelude::*;
 
 pub(crate) fn draw_grid(mut gizmos: Gizmos) {

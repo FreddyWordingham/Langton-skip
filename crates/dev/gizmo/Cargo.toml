@@ -12,7 +12,7 @@ authors.workspace = true
 
 
 [dependencies]
-arc_spatial = { workspace = true }
+arc_draw = { workspace = true }
 
 bevy = { workspace = true }
 

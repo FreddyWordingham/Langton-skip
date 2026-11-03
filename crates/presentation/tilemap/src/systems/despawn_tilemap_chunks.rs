@@ -4,9 +4,9 @@ use crate::{components::TilemapChunkMarker, resources::TilemapChunks, traits::Ti
 
 pub(crate) fn despawn_tilemap_chunks<L: TilemapLayer>(
     mut commands: Commands,
-    chunks: Query<Entity, With<TilemapChunkMarker<L>>>,
+    tilemap_q: Query<Entity, With<TilemapChunkMarker<L>>>,
 ) {
-    for ent in &chunks {
+    for ent in &tilemap_q {
         commands.entity(ent).despawn();
     }
     commands.remove_resource::<TilemapChunks<L>>();

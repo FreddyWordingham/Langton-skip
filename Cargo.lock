@@ -374,7 +374,7 @@ dependencies = [
 name = "arc_gizmo"
 version = "0.0.0"
 dependencies = [
- "arc_spatial",
+ "arc_draw",
  "bevy",
 ]
 

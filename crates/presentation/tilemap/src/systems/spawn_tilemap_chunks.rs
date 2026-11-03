@@ -17,7 +17,13 @@ pub(crate) fn spawn_tilemap_chunks<L: TilemapLayer>(
     assets: Res<AssetServer>,
     tilemap_settings: Res<TilemapSettings<L>>,
     source: Res<L::Source>,
+    tilemap_q: Query<Entity, With<TilemapChunkMarker<L>>>,
 ) {
+    for ent in &tilemap_q {
+        commands.entity(ent).despawn();
+    }
+    commands.remove_resource::<TilemapChunks<L>>();
+
     let config = tilemap_settings.config();
     let array_layout = config.array_layout;
     let sampler = config.sampler.clone();
