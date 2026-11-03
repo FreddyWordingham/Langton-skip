@@ -15,9 +15,9 @@ impl Plugin for SpawnPlugin {
             .add_systems(
                 Update,
                 (
-                    spawn_ui.run_if(resource_changed::<ShowSpawnUi>).in_set(SpawnUpdate::Spawn),
+                    spawn_ui.run_if(resource_added::<ShowSpawnUi>).in_set(SpawnUpdate::Spawn),
                     update_spawn_selection_buttons
-                        .run_if(resource_changed::<ShowSpawnUi>)
+                        .run_if(resource_exists_and_changed::<ShowSpawnUi>)
                         .in_set(SpawnUpdate::Sync),
                     despawn_ui
                         .run_if(resource_removed::<ShowSpawnUi>)

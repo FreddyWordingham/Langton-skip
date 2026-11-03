@@ -23,7 +23,7 @@ pub(crate) fn update_cursor(
         .get(&PointerId::Mouse)
         .is_some_and(|hits| hits.keys().any(|&ent| ui_nodes.contains(ent)));
     if over_ui {
-        if cursor.curr() != None && cursor.prev() != None {
+        if cursor.curr() != None || cursor.prev() != None {
             cursor.set_curr(None);
         }
         return;
@@ -45,7 +45,7 @@ pub(crate) fn update_cursor(
             Some(coord)
         });
 
-    if cursor.curr() != coord && cursor.prev() != coord {
+    if cursor.curr() != coord || cursor.prev() != coord {
         cursor.set_curr(coord);
     }
 }
