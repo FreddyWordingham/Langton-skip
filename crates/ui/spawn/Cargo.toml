@@ -13,9 +13,8 @@ authors.workspace = true
 
 [dependencies]
 arc_button = { workspace = true }
-arc_content = { workspace = true }
+arc_core = { workspace = true }
 arc_cursor = { workspace = true }
-arc_draw = { workspace = true }
 arc_map = { workspace = true }
 
 bevy = { workspace = true }

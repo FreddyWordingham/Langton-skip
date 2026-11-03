@@ -1,5 +1,5 @@
 use arc_camera::MainCamera;
-use arc_draw::TILE_SIZE;
+use arc_core::TILE_SIZE;
 use arc_map::Map;
 use bevy::{
     picking::{hover::HoverMap, pointer::PointerId},

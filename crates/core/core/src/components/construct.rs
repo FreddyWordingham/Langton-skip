@@ -1,6 +1,6 @@
-use arc_direction::Direction;
-use arc_draw::MenuItem;
 use bevy::prelude::*;
+
+use crate::{components::Direction, traits::MenuItem};
 
 #[derive(Component, Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum Construct {

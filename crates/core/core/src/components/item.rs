@@ -1,6 +1,6 @@
-use arc_count::Count;
-use arc_draw::MenuItem;
 use bevy::prelude::*;
+
+use crate::{traits::MenuItem, types::Count};
 
 #[derive(Component, Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum Item {

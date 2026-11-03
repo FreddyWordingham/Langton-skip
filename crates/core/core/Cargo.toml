@@ -1,6 +1,6 @@
 [package]
-name = "arc_content"
-description = "Content Crate"
+name = "arc_core"
+description = "Core Crate"
 repository.workspace = true
 readme.workspace = true
 keywords.workspace = true
@@ -12,10 +12,6 @@ authors.workspace = true
 
 
 [dependencies]
-arc_count = { workspace = true }
-arc_direction = { workspace = true }
-arc_draw = { workspace = true }
-
 bevy = { workspace = true }
 
 

@@ -1,4 +1,4 @@
-use arc_content::Terrain;
+use arc_core::Terrain;
 use bevy::prelude::*;
 
 #[derive(Message)]

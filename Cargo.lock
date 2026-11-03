@@ -302,17 +302,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "arc_content"
-version = "0.0.0"
-dependencies = [
- "arc_count",
- "arc_direction",
- "arc_draw",
- "bevy",
-]
-
-[[package]]
-name = "arc_count"
+name = "arc_core"
 version = "0.0.0"
 dependencies = [
  "bevy",
@@ -323,7 +313,7 @@ name = "arc_cursor"
 version = "0.0.0"
 dependencies = [
  "arc_camera",
- "arc_draw",
+ "arc_core",
  "arc_map",
  "bevy",
 ]
@@ -333,21 +323,6 @@ name = "arc_dev"
 version = "0.0.0"
 dependencies = [
  "arc_gizmo",
- "bevy",
-]
-
-[[package]]
-name = "arc_direction"
-version = "0.0.0"
-dependencies = [
- "bevy",
-]
-
-[[package]]
-name = "arc_draw"
-version = "0.0.0"
-dependencies = [
- "arc_direction",
  "bevy",
 ]
 
@@ -379,7 +354,7 @@ dependencies = [
 name = "arc_gizmo"
 version = "0.0.0"
 dependencies = [
- "arc_draw",
+ "arc_core",
  "arc_map",
  "bevy",
 ]
@@ -412,8 +387,7 @@ dependencies = [
 name = "arc_map"
 version = "0.0.0"
 dependencies = [
- "arc_content",
- "arc_draw",
+ "arc_core",
  "arc_grid",
  "bevy",
 ]
@@ -423,7 +397,7 @@ name = "arc_presentation"
 version = "0.0.0"
 dependencies = [
  "arc_camera",
- "arc_draw",
+ "arc_core",
  "arc_map",
  "arc_tilemap",
  "bevy",
@@ -456,9 +430,8 @@ name = "arc_spawn"
 version = "0.0.0"
 dependencies = [
  "arc_button",
- "arc_content",
+ "arc_core",
  "arc_cursor",
- "arc_draw",
  "arc_map",
  "bevy",
 ]

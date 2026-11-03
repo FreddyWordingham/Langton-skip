@@ -28,10 +28,7 @@ arc_simulation = { version = "0.0.0", path = "crates/composition/simulation" }
 arc_ui = { version = "0.0.0", path = "crates/composition/ui" }
 
 # Core
-arc_content = { version = "0.0.0", path = "crates/core/content" }
-arc_count = { version = "0.0.0", path = "crates/core/count" }
-arc_direction = { version = "0.0.0", path = "crates/core/direction" }
-arc_draw = { version = "0.0.0", path = "crates/core/draw" }
+arc_core = { version = "0.0.0", path = "crates/core/core" }
 arc_grid = { version = "0.0.0", path = "crates/core/grid" }
 arc_theme = { version = "0.0.0", path = "crates/core/theme" }
 

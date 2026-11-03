@@ -1,4 +1,4 @@
-use arc_content::Liquid;
+use arc_core::Liquid;
 use bevy::prelude::*;
 
 #[derive(Message)]

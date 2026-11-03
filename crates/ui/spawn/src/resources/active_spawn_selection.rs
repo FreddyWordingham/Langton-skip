@@ -1,4 +1,4 @@
-use arc_content::{Construct, Feature, Item, Liquid, Terrain};
+use arc_core::{Construct, Feature, Item, Liquid, Terrain};
 use bevy::prelude::*;
 
 #[derive(Resource)]

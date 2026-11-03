@@ -1,5 +1,4 @@
-use arc_content::{Liquid, Terrain};
-use arc_draw::TILE_SIZE_VEC2;
+use arc_core::{Liquid, TILE_SIZE_VEC2, Terrain};
 use arc_grid::DirtyTrackingGrid;
 use bevy::prelude::*;
 

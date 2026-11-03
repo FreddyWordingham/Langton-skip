@@ -1,4 +1,4 @@
-use arc_draw::{TILE_SIZE_UVEC2, Tile};
+use arc_core::{TILE_SIZE_UVEC2, Tile};
 use arc_map::Map;
 use arc_tilemap::{TilemapConfig, TilemapLayer};
 use bevy::{

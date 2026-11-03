@@ -1,5 +1,6 @@
-use arc_draw::{MenuItem, Tile};
 use bevy::{prelude::*, sprite_render::TileData};
+
+use crate::traits::{MenuItem, Tile};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum Liquid {
