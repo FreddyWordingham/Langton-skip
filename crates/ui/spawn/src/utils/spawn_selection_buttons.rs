@@ -1,5 +1,5 @@
 use arc_button::{button, button_node};
-use arc_content::{Construct, Feature, Item, Terrain};
+use arc_content::{Construct, Feature, Item, Liquid, Terrain};
 use arc_draw::Draw;
 use bevy::{prelude::*, ui_widgets::Activate};
 
@@ -11,6 +11,13 @@ pub(crate) fn spawn_selection_buttons(parent: &mut ChildSpawnerCommands<'_>, ass
             for terrain in Terrain::ALL {
                 spawn_button(parent, assets, &terrain).observe(move |_: On<Activate>, mut commands: Commands| {
                     commands.insert_resource(ActiveSpawnSelection::Terrain(terrain));
+                });
+            }
+        }
+        SpawnTab::Liquid => {
+            for liquid in Liquid::ALL {
+                spawn_button(parent, assets, &liquid).observe(move |_: On<Activate>, mut commands: Commands| {
+                    commands.insert_resource(ActiveSpawnSelection::Liquid(liquid));
                 });
             }
         }

@@ -13,7 +13,7 @@ impl Map {
     pub fn new(size: UVec2) -> Self {
         Self {
             terrain: DirtyTrackingGrid::new(size, Some(Terrain::Soil)),
-            liquid: DirtyTrackingGrid::new(size, Some(Liquid::Water)),
+            liquid: DirtyTrackingGrid::new(size, None),
         }
     }
 
