@@ -20,7 +20,7 @@ arc_tick = { workspace = true }
 bevy = { workspace = true }
 
 
-arc_terrain = { workspace = true }
+arc_content = { workspace = true }
 rand = { workspace = true }
 
 

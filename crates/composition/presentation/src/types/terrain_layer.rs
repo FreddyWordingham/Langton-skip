@@ -39,7 +39,7 @@ impl TerrainLayer {
                 tile_height_pixels: 32,
                 tile_width_pixels: 32,
             }),
-            z_index: 0.0,
+            z_index: -2.0,
             sampler: ImageSampler::nearest(),
             alpha_mode: AlphaMode2d::Mask(0.5),
         }

@@ -1,6 +1,6 @@
+use arc_content::Terrain;
 use arc_draw::TILE_SIZE_VEC2;
 use arc_grid::DirtyTrackingGrid;
-use arc_terrain::Terrain;
 use bevy::prelude::*;
 
 #[derive(Resource)]

@@ -17,7 +17,6 @@ dev = ["dep:arc_dev"]
 
 
 [dependencies]
-arc_content = { workspace = true }
 arc_dev = { workspace = true, optional = true }
 arc_engine = { workspace = true }
 arc_input = { workspace = true }

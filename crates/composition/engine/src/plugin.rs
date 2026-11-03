@@ -26,6 +26,6 @@ fn mutate_map(mut map: ResMut<Map>, mut rng: ResMut<arc_random::Rng>) {
     let size = map.terrain().size();
     for _ in 0..10 {
         let coord = uvec2(rng.0.random_range(0..size.x), rng.0.random_range(0..size.y));
-        map.terrain_mut()[coord] = Some(arc_terrain::Terrain::Sand);
+        map.terrain_mut()[coord] = Some(arc_content::Terrain::Sand);
     }
 }

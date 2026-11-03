@@ -20,7 +20,6 @@ license-file = "LICENSE"
 arc_game = { version = "0.0.0", path = "crates/application/game" }
 
 # Composition
-arc_content = { version = "0.0.0", path = "crates/composition/content" }
 arc_dev = { version = "0.0.0", path = "crates/composition/dev" }
 arc_engine = { version = "0.0.0", path = "crates/composition/engine" }
 arc_input = { version = "0.0.0", path = "crates/composition/input" }
@@ -28,13 +27,8 @@ arc_presentation = { version = "0.0.0", path = "crates/composition/presentation"
 arc_simulation = { version = "0.0.0", path = "crates/composition/simulation" }
 arc_ui = { version = "0.0.0", path = "crates/composition/ui" }
 
-# Content
-arc_construct = { version = "0.0.0", path = "crates/content/construct" }
-arc_feature = { version = "0.0.0", path = "crates/content/feature" }
-arc_item = { version = "0.0.0", path = "crates/content/item" }
-arc_terrain = { version = "0.0.0", path = "crates/content/terrain" }
-
 # Core
+arc_content = { version = "0.0.0", path = "crates/core/content" }
 arc_draw = { version = "0.0.0", path = "crates/core/draw" }
 arc_grid = { version = "0.0.0", path = "crates/core/grid" }
 arc_theme = { version = "0.0.0", path = "crates/core/theme" }

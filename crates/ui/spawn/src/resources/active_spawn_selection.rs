@@ -1,7 +1,4 @@
-use arc_construct::Construct;
-use arc_feature::Feature;
-use arc_item::Item;
-use arc_terrain::Terrain;
+use arc_content::{Construct, Feature, Item, Terrain};
 use bevy::prelude::*;
 
 #[derive(Resource)]

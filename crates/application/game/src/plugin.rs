@@ -1,4 +1,3 @@
-use arc_content::ContentPlugin;
 #[cfg(feature = "dev")]
 use arc_dev::DevPlugin;
 use arc_engine::EnginePlugin;
@@ -12,14 +11,7 @@ pub struct GamePlugin;
 
 impl Plugin for GamePlugin {
     fn build(&self, app: &mut App) {
-        app.add_plugins((
-            ContentPlugin,
-            EnginePlugin,
-            InputPlugin,
-            PresentationPlugin,
-            SimulationPlugin,
-            UiPlugin,
-        ));
+        app.add_plugins((EnginePlugin, InputPlugin, PresentationPlugin, SimulationPlugin, UiPlugin));
 
         #[cfg(feature = "dev")]
         app.add_plugins(DevPlugin);

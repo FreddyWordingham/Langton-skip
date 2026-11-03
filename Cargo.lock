@@ -302,21 +302,10 @@ dependencies = [
 ]
 
 [[package]]
-name = "arc_construct"
-version = "0.0.0"
-dependencies = [
- "arc_draw",
- "bevy",
-]
-
-[[package]]
 name = "arc_content"
 version = "0.0.0"
 dependencies = [
- "arc_construct",
- "arc_feature",
- "arc_item",
- "arc_terrain",
+ "arc_draw",
  "bevy",
 ]
 
@@ -339,29 +328,19 @@ dependencies = [
 name = "arc_engine"
 version = "0.0.0"
 dependencies = [
+ "arc_content",
  "arc_map",
  "arc_random",
  "arc_spatial",
- "arc_terrain",
  "arc_tick",
  "bevy",
  "rand",
 ]
 
 [[package]]
-name = "arc_feature"
-version = "0.0.0"
-dependencies = [
- "arc_draw",
- "arc_item",
- "bevy",
-]
-
-[[package]]
 name = "arc_game"
 version = "0.0.0"
 dependencies = [
- "arc_content",
  "arc_dev",
  "arc_engine",
  "arc_input",
@@ -396,14 +375,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "arc_item"
-version = "0.0.0"
-dependencies = [
- "arc_draw",
- "bevy",
-]
-
-[[package]]
 name = "arc_keyboard"
 version = "0.0.0"
 dependencies = [
@@ -415,9 +386,9 @@ dependencies = [
 name = "arc_map"
 version = "0.0.0"
 dependencies = [
+ "arc_content",
  "arc_draw",
  "arc_grid",
- "arc_terrain",
  "bevy",
 ]
 
@@ -459,20 +430,9 @@ name = "arc_spawn"
 version = "0.0.0"
 dependencies = [
  "arc_button",
- "arc_construct",
+ "arc_content",
  "arc_draw",
- "arc_feature",
- "arc_item",
- "arc_terrain",
  "arc_theme",
- "bevy",
-]
-
-[[package]]
-name = "arc_terrain"
-version = "0.0.0"
-dependencies = [
- "arc_draw",
  "bevy",
 ]
 

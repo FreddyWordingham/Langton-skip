@@ -1,7 +1,7 @@
 use arc_draw::{Draw, Tile};
 use bevy::{prelude::*, sprite_render::TileData};
 
-#[derive(Component, Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum Terrain {
     Sand,
     Soil,

@@ -1,6 +1,7 @@
 use arc_draw::Draw;
-use arc_item::Item;
 use bevy::prelude::*;
+
+use crate::components::Item;
 
 #[derive(Component, Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum Feature {

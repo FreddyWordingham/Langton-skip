@@ -1,9 +1,6 @@
 use arc_button::{button, button_node};
-use arc_construct::Construct;
+use arc_content::{Construct, Feature, Item, Terrain};
 use arc_draw::Draw;
-use arc_feature::Feature;
-use arc_item::Item;
-use arc_terrain::Terrain;
 use bevy::{prelude::*, ui_widgets::Activate};
 
 use crate::{resources::ActiveSpawnSelection, types::SpawnTab};
