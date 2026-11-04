@@ -14,6 +14,7 @@ authors.workspace = true
 [dependencies]
 arc_camera = { workspace = true }
 arc_core = { workspace = true }
+arc_grid = { workspace = true }
 arc_map = { workspace = true }
 arc_tilemap = { workspace = true }
 

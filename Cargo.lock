@@ -330,6 +330,7 @@ dependencies = [
 name = "arc_engine"
 version = "0.0.0"
 dependencies = [
+ "arc_grid",
  "arc_map",
  "arc_random",
  "arc_spatial",
@@ -398,6 +399,7 @@ version = "0.0.0"
 dependencies = [
  "arc_camera",
  "arc_core",
+ "arc_grid",
  "arc_map",
  "arc_tilemap",
  "bevy",

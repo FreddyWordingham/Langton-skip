@@ -1,4 +1,4 @@
-use arc_draw::TILE_SIZE_VEC2;
+use arc_core::TILE_SIZE_VEC2;
 use arc_map::Map;
 use bevy::prelude::*;
 

@@ -1,3 +1,4 @@
+use arc_grid::Size;
 use arc_map::{CreateMap, Map, MapPlugin};
 use arc_random::RandomPlugin;
 use arc_spatial::SpatialPlugin;
@@ -15,6 +16,6 @@ impl Plugin for EnginePlugin {
 
 fn setup(mut create_map_msg: MessageWriter<CreateMap>) {
     create_map_msg.write(CreateMap {
-        map: Map::new(uvec2(16, 16)),
+        map: Map::new(Size::new(16, 16)),
     });
 }

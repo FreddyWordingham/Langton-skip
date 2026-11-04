@@ -1,4 +1,4 @@
-use arc_grid::iter_coords;
+use arc_grid::Size;
 use bevy::{
     image::ImageLoaderSettings,
     platform::collections::HashMap,
@@ -38,13 +38,14 @@ pub(crate) fn spawn_tilemap_chunks<L: TilemapLayer>(
     let grid_size = L::size(&source);
     let mut ents = HashMap::new();
     let num_chunks = UVec2::new(
-        grid_size.x.div_ceil(config.chunk_size.x),
-        grid_size.y.div_ceil(config.chunk_size.y),
+        grid_size.width().div_ceil(config.chunk_size.x),
+        grid_size.height().div_ceil(config.chunk_size.y),
     );
-    for chunk_coord in iter_coords(num_chunks) {
+    for chunk_coord in Size::from(num_chunks).iter_coords() {
         let origin = chunk_coord * config.chunk_size;
-        let chunk_size = config.chunk_size.min(grid_size - origin);
-        let tile_data: Vec<Option<TileData>> = iter_coords(chunk_size)
+        let chunk_size = config.chunk_size.min(grid_size.as_uvec2() - origin);
+        let tile_data: Vec<Option<TileData>> = Size::from(chunk_size)
+            .iter_coords()
             .map(|local_coord| L::tile_data(&source, origin + local_coord))
             .collect();
 

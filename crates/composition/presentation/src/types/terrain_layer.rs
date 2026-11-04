@@ -1,4 +1,5 @@
 use arc_core::{TILE_SIZE_UVEC2, Tile};
+use arc_grid::Size;
 use arc_map::Map;
 use arc_tilemap::{TilemapConfig, TilemapLayer};
 use bevy::{
@@ -12,7 +13,7 @@ pub(crate) struct TerrainLayer;
 impl TilemapLayer for TerrainLayer {
     type Source = Map;
 
-    fn size(source: &Self::Source) -> UVec2 {
+    fn size(source: &Self::Source) -> Size {
         source.terrain().size()
     }
 

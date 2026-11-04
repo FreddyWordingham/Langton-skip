@@ -2,7 +2,7 @@ use std::ops::{Index, IndexMut};
 
 use bevy::{platform::collections::HashSet, prelude::*};
 
-use crate::types::Grid;
+use crate::types::{Grid, Size};
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct DirtyTrackingGrid<T> {
@@ -11,7 +11,7 @@ pub struct DirtyTrackingGrid<T> {
 }
 
 impl<T> DirtyTrackingGrid<T> {
-    pub fn new(size: UVec2, value: T) -> Self
+    pub fn new(size: Size, value: T) -> Self
     where
         T: Clone,
     {
@@ -21,36 +21,12 @@ impl<T> DirtyTrackingGrid<T> {
         }
     }
 
-    pub fn len(&self) -> usize {
-        self.grid.len()
-    }
-
-    pub fn size(&self) -> UVec2 {
+    pub fn size(&self) -> Size {
         self.grid.size()
-    }
-
-    pub fn in_bounds(&self, coord: UVec2) -> bool {
-        self.grid.in_bounds(coord)
-    }
-
-    pub fn try_in_bounds(&self, point: IVec2) -> Option<UVec2> {
-        self.grid.try_in_bounds(point)
-    }
-
-    pub fn index_to_coord(&self, index: usize) -> UVec2 {
-        self.grid.index_to_coord(index)
-    }
-
-    pub fn coord_to_index(&self, coord: UVec2) -> usize {
-        self.grid.coord_to_index(coord)
     }
 
     pub fn iter(&self) -> impl Iterator<Item = &T> {
         self.grid.iter()
-    }
-
-    pub fn coords(&self) -> impl Iterator<Item = UVec2> {
-        self.grid.coords()
     }
 
     pub fn iter_with_coords(&self) -> impl Iterator<Item = (UVec2, &T)> {
@@ -58,7 +34,7 @@ impl<T> DirtyTrackingGrid<T> {
     }
 
     pub fn mark_dirty(&mut self, coord: UVec2) {
-        if self.in_bounds(coord) {
+        if self.grid.size().in_bounds(coord) {
             self.dirty.insert(coord);
         }
     }

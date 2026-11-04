@@ -39,7 +39,7 @@ pub(crate) fn update_cursor(
             let coord = (world_position / TILE_SIZE).floor().as_uvec2();
 
             let map_size = map.size();
-            if coord.x >= map_size.x || coord.y >= map_size.y {
+            if !map_size.in_bounds(coord) {
                 return None;
             }
             Some(coord)

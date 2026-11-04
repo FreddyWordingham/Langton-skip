@@ -1,4 +1,4 @@
-use arc_grid::coord_to_index;
+use arc_grid::Size;
 use bevy::{
     prelude::*,
     sprite_render::{TilemapChunk, TilemapChunkTileData},
@@ -28,7 +28,7 @@ pub(crate) fn sync_tilemap_chunks<L: TilemapLayer>(
         let entity = tilemap_chunks.get(chunk_coord);
         let (mut tile_data, chunk) = tilemap_chunk_tile_data_q.get_mut(entity).expect("Failed to get chunk entity");
 
-        let index = coord_to_index(local_coord, chunk.chunk_size);
+        let index = Size::from(chunk.chunk_size).coord_to_index(local_coord);
         tile_data[index] = L::tile_data(&source, global_coord);
     }
 }
