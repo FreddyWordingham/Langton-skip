@@ -1,7 +1,7 @@
-use arc_geometry::Aabb;
+use arc_geometry::{Aabb, Size};
 use bevy::{platform::collections::HashMap, prelude::*};
 
-use crate::types::{Grid, Size};
+use crate::types::Grid;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct PlacementGrid {

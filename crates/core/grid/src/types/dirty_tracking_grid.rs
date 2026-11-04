@@ -1,8 +1,9 @@
 use std::ops::{Index, IndexMut};
 
+use arc_geometry::Size;
 use bevy::{platform::collections::HashSet, prelude::*};
 
-use crate::types::{Grid, Size};
+use crate::types::Grid;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct DirtyTrackingGrid<T> {

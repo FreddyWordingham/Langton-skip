@@ -1,5 +1,5 @@
 use arc_core::{TILE_SIZE_UVEC2, Tile};
-use arc_grid::Size;
+use arc_geometry::Size;
 use arc_map::Map;
 use arc_tilemap::{TilemapConfig, TilemapLayer};
 use bevy::{

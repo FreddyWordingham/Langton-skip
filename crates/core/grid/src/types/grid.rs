@@ -1,8 +1,7 @@
 use std::ops::{Index, IndexMut};
 
+use arc_geometry::Size;
 use bevy::prelude::*;
-
-use crate::types::Size;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Grid<T> {

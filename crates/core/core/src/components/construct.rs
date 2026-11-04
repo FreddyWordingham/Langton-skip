@@ -1,3 +1,4 @@
+use arc_geometry::{Aabb, Size};
 use bevy::prelude::*;
 
 use crate::{components::Direction, traits::MenuItem};
@@ -14,6 +15,22 @@ impl Construct {
             Direction::East => "sprites/buildings/drill/east.png",
             Direction::South => "sprites/buildings/drill/south.png",
             Direction::West => "sprites/buildings/drill/west.png",
+        }
+    }
+
+    pub fn footprint(&self, coord: UVec2, direction: Direction) -> Aabb {
+        let size = if direction == Direction::North || direction == Direction::South {
+            self.size()
+        } else {
+            let s = self.size();
+            Size::new(s.height(), s.width())
+        };
+        Aabb::new(coord, size.as_uvec2() - UVec2::ONE)
+    }
+
+    fn size(&self) -> Size {
+        match self {
+            Self::Drill => Size::new(3, 3),
         }
     }
 }

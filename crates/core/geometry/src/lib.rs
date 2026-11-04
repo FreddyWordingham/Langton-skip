@@ -2,4 +2,4 @@
 
 mod types;
 
-pub use crate::types::Aabb;
+pub use crate::types::{Aabb, Size};

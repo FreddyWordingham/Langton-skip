@@ -7,7 +7,7 @@ mod sets;
 mod systems;
 
 pub use crate::{
-    messages::{CreateMap, DestroyMap, SetFloor, SetLiquid, SetTerrain},
+    messages::{CreateMap, DestroyMap, SetFloor, SetLiquid, SetTerrain, SpawnConstruct},
     plugin::MapPlugin,
     resources::Map,
     sets::MapFixedUpdate,

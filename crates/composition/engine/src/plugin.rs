@@ -1,4 +1,4 @@
-use arc_grid::Size;
+use arc_geometry::Size;
 use arc_map::{CreateMap, Map, MapPlugin};
 use arc_random::RandomPlugin;
 use arc_spatial::SpatialPlugin;

@@ -6,7 +6,7 @@ mod traits;
 mod types;
 
 pub use crate::{
-    components::{Construct, Direction, Feature, Item},
+    components::{Construct, Coord, Direction, Feature, Item},
     constants::{TILE_SIZE, TILE_SIZE_UVEC2, TILE_SIZE_VEC2},
     traits::{MenuItem, Tile},
     types::{Count, Floor, Liquid, Terrain},

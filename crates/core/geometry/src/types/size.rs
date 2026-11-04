@@ -1,5 +1,6 @@
-use arc_geometry::Aabb;
 use bevy::prelude::*;
+
+use crate::types::Aabb;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct Size(UVec2);

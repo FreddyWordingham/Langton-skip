@@ -1,4 +1,4 @@
-use arc_grid::Size;
+use arc_geometry::Size;
 use bevy::{
     image::ImageLoaderSettings,
     platform::collections::HashMap,

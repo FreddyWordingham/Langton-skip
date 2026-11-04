@@ -1,5 +1,6 @@
 use arc_core::{Floor, Liquid, TILE_SIZE_VEC2, Terrain};
-use arc_grid::{DirtyTrackingGrid, PlacementGrid, Size};
+use arc_geometry::Size;
+use arc_grid::{DirtyTrackingGrid, PlacementGrid};
 use bevy::prelude::*;
 
 #[derive(Resource)]

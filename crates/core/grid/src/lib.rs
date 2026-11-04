@@ -2,4 +2,4 @@
 
 mod types;
 
-pub use crate::types::{DirtyTrackingGrid, Grid, PlacementGrid, Size};
+pub use crate::types::{DirtyTrackingGrid, Grid, PlacementGrid};

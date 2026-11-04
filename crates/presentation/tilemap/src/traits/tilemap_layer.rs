@@ -1,4 +1,4 @@
-use arc_grid::Size;
+use arc_geometry::Size;
 use bevy::{ecs::component::Mutable, prelude::*, sprite_render::TileData};
 
 pub trait TilemapLayer: 'static {
