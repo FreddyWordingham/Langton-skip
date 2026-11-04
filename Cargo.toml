@@ -29,6 +29,7 @@ arc_ui = { version = "0.0.0", path = "crates/composition/ui" }
 
 # Core
 arc_core = { version = "0.0.0", path = "crates/core/core" }
+arc_geometry = { version = "0.0.0", path = "crates/core/geometry" }
 arc_grid = { version = "0.0.0", path = "crates/core/grid" }
 arc_theme = { version = "0.0.0", path = "crates/core/theme" }
 

@@ -1,3 +1,4 @@
+use arc_geometry::Aabb;
 use bevy::{platform::collections::HashMap, prelude::*};
 
 use crate::types::{Grid, Size};
@@ -5,7 +6,7 @@ use crate::types::{Grid, Size};
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct PlacementGrid {
     entities: Grid<Option<Entity>>,
-    placements: HashMap<Entity, URect>,
+    placements: HashMap<Entity, Aabb>,
 }
 
 impl PlacementGrid {

@@ -1,3 +1,4 @@
+use arc_geometry::Aabb;
 use bevy::prelude::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -24,8 +25,8 @@ impl Size {
         self.0.x == 0 || self.0.y == 0
     }
 
-    pub fn rect_in_bounds(&self, rect: URect) -> bool {
-        self.in_bounds(rect.min) && self.in_bounds(rect.max)
+    pub fn aabb_in_bounds(&self, aabb: Aabb) -> bool {
+        self.in_bounds(aabb.min()) && self.in_bounds(aabb.max())
     }
 
     pub fn in_bounds(&self, coord: UVec2) -> bool {
