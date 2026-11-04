@@ -1,5 +1,6 @@
+use arc_core::Direction;
 use arc_cursor::Cursor;
-use arc_map::{SetFloor, SetLiquid, SetTerrain};
+use arc_map::{SetFloor, SetLiquid, SetTerrain, SpawnConstruct};
 use bevy::prelude::*;
 
 use crate::resources::ActiveSpawnSelection;
@@ -11,6 +12,7 @@ pub(crate) fn trigger_spawn(
     mut set_terrain_msg: MessageWriter<SetTerrain>,
     mut set_floor_msg: MessageWriter<SetFloor>,
     mut set_liquid_msg: MessageWriter<SetLiquid>,
+    mut spawn_construct_msg: MessageWriter<SpawnConstruct>,
 ) {
     let Some(coord) = cursor.curr() else { return };
 
@@ -32,6 +34,13 @@ pub(crate) fn trigger_spawn(
                 set_liquid_msg.write(SetLiquid {
                     coord,
                     liquid: Some(liquid),
+                });
+            }
+            ActiveSpawnSelection::Construct(construct) => {
+                spawn_construct_msg.write(SpawnConstruct {
+                    coord,
+                    construct,
+                    direction: Direction::South,
                 });
             }
             _ => {

@@ -25,7 +25,7 @@ impl Construct {
             let s = self.size();
             Size::new(s.height(), s.width())
         };
-        Aabb::new(coord, size.as_uvec2() - UVec2::ONE)
+        Aabb::new(coord, coord + size.as_uvec2() - UVec2::ONE)
     }
 
     fn size(&self) -> Size {
