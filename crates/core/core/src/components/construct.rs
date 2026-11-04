@@ -32,4 +32,10 @@ impl MenuItem for Construct {
             Self::Drill => "sprites/buildings/drill/north.png",
         }
     }
+
+    fn menu_sprite_color(&self) -> Color {
+        match self {
+            Self::Drill => Color::WHITE,
+        }
+    }
 }

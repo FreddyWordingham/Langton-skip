@@ -1,4 +1,4 @@
-use arc_core::{Liquid, TILE_SIZE_VEC2, Terrain};
+use arc_core::{Floor, Liquid, TILE_SIZE_VEC2, Terrain};
 use arc_grid::{DirtyTrackingGrid, PlacementGrid, Size};
 use bevy::prelude::*;
 
@@ -6,6 +6,7 @@ use bevy::prelude::*;
 pub struct Map {
     size: Size,
     terrain: DirtyTrackingGrid<Option<Terrain>>,
+    floor: DirtyTrackingGrid<Option<Floor>>,
     liquid: DirtyTrackingGrid<Option<Liquid>>,
     constructs: PlacementGrid,
 }
@@ -15,6 +16,7 @@ impl Map {
         Self {
             size,
             terrain: DirtyTrackingGrid::new(size, Some(Terrain::Soil)),
+            floor: DirtyTrackingGrid::new(size, None),
             liquid: DirtyTrackingGrid::new(size, None),
             constructs: PlacementGrid::new(size),
         }
@@ -32,6 +34,10 @@ impl Map {
         &self.terrain
     }
 
+    pub fn floor(&self) -> &DirtyTrackingGrid<Option<Floor>> {
+        &self.floor
+    }
+
     pub fn liquid(&self) -> &DirtyTrackingGrid<Option<Liquid>> {
         &self.liquid
     }
@@ -42,6 +48,10 @@ impl Map {
 
     pub(crate) fn terrain_mut(&mut self) -> &mut DirtyTrackingGrid<Option<Terrain>> {
         &mut self.terrain
+    }
+
+    pub(crate) fn floor_mut(&mut self) -> &mut DirtyTrackingGrid<Option<Floor>> {
+        &mut self.floor
     }
 
     pub(crate) fn liquid_mut(&mut self) -> &mut DirtyTrackingGrid<Option<Liquid>> {
@@ -56,12 +66,20 @@ impl Map {
         self.terrain.is_dirty()
     }
 
+    pub fn floor_is_dirty(&self) -> bool {
+        self.floor.is_dirty()
+    }
+
     pub fn liquid_is_dirty(&self) -> bool {
         self.liquid.is_dirty()
     }
 
     pub fn terrain_drain_dirty(&mut self) -> impl Iterator<Item = UVec2> + '_ {
         self.terrain.drain_dirty()
+    }
+
+    pub fn floor_drain_dirty(&mut self) -> impl Iterator<Item = UVec2> + '_ {
+        self.floor.drain_dirty()
     }
 
     pub fn liquid_drain_dirty(&mut self) -> impl Iterator<Item = UVec2> + '_ {

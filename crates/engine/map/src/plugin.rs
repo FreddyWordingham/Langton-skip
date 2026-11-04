@@ -1,10 +1,10 @@
 use bevy::prelude::*;
 
 use crate::{
-    messages::{CreateMap, DestroyMap, SetLiquid, SetTerrain},
+    messages::{CreateMap, DestroyMap, SetFloor, SetLiquid, SetTerrain},
     resources::Map,
     sets::MapFixedUpdate,
-    systems::{handle_create_map, handle_destroy_map, handle_set_liquid, handle_set_terrain},
+    systems::{handle_create_map, handle_destroy_map, handle_set_floor, handle_set_liquid, handle_set_terrain},
 };
 
 pub struct MapPlugin;
@@ -16,6 +16,7 @@ impl Plugin for MapPlugin {
             (
                 MapFixedUpdate::Create,
                 MapFixedUpdate::MutateTerrain,
+                MapFixedUpdate::MutateFloor,
                 MapFixedUpdate::MutateLiquid,
                 MapFixedUpdate::Destroy,
             )
@@ -23,6 +24,7 @@ impl Plugin for MapPlugin {
         )
         .add_message::<CreateMap>()
         .add_message::<SetTerrain>()
+        .add_message::<SetFloor>()
         .add_message::<SetLiquid>()
         .add_message::<DestroyMap>()
         .add_systems(
@@ -32,6 +34,9 @@ impl Plugin for MapPlugin {
                 handle_set_terrain
                     .run_if(resource_exists::<Map>)
                     .in_set(MapFixedUpdate::MutateTerrain),
+                handle_set_floor
+                    .run_if(resource_exists::<Map>)
+                    .in_set(MapFixedUpdate::MutateFloor),
                 handle_set_liquid
                     .run_if(resource_exists::<Map>)
                     .in_set(MapFixedUpdate::MutateLiquid),

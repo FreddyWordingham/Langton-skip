@@ -1,5 +1,5 @@
 use arc_button::{button, button_node};
-use arc_core::{Construct, Feature, Item, Liquid, MenuItem, Terrain};
+use arc_core::{Construct, Feature, Floor, Item, Liquid, MenuItem, Terrain};
 use bevy::{prelude::*, ui_widgets::Activate};
 
 use crate::resources::{ActiveSpawnSelection, SpawnTab};
@@ -10,6 +10,13 @@ pub(crate) fn spawn_selection_buttons(parent: &mut ChildSpawnerCommands<'_>, ass
             for terrain in Terrain::ALL {
                 spawn_button(parent, assets, terrain).observe(move |_: On<Activate>, mut commands: Commands| {
                     commands.insert_resource(ActiveSpawnSelection::Terrain(*terrain));
+                });
+            }
+        }
+        SpawnTab::Floor => {
+            for floor in Floor::ALL {
+                spawn_button(parent, assets, floor).observe(move |_: On<Activate>, mut commands: Commands| {
+                    commands.insert_resource(ActiveSpawnSelection::Floor(*floor));
                 });
             }
         }
@@ -65,7 +72,7 @@ fn spawn_button<'a>(
                     height: px(16.0),
                     ..default()
                 },
-                ImageNode::new(assets.load(draw.menu_sprite_path()))
+                ImageNode::new(assets.load(draw.menu_sprite_path())).with_color(draw.menu_sprite_color())
             )
         ],
     ))

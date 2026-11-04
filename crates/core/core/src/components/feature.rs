@@ -23,4 +23,10 @@ impl MenuItem for Feature {
             Self::Ore(item) => item.menu_sprite_path(),
         }
     }
+
+    fn menu_sprite_color(&self) -> Color {
+        match self {
+            Self::Ore(item) => item.menu_sprite_color(),
+        }
+    }
 }

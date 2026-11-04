@@ -4,6 +4,7 @@ use bevy::prelude::*;
 pub enum MapFixedUpdate {
     Create,
     MutateTerrain,
+    MutateFloor,
     MutateLiquid,
     Destroy,
 }

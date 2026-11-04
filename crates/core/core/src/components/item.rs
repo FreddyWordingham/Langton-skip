@@ -31,4 +31,10 @@ impl MenuItem for Item {
             Self::Iron => "sprites/items/iron/few.png",
         }
     }
+
+    fn menu_sprite_color(&self) -> Color {
+        match self {
+            Self::Iron => Color::WHITE,
+        }
+    }
 }

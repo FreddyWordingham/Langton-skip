@@ -37,10 +37,10 @@ impl TerrainLayer {
             tile_display_size: TILE_SIZE_UVEC2,
             tileset_path: "atlases/terrain.png".to_owned(),
             array_layout: Some(ImageArrayLayout::GridSize {
-                tile_height_pixels: 32,
-                tile_width_pixels: 32,
+                tile_height_pixels: 128,
+                tile_width_pixels: 128,
             }),
-            z_index: -2.0,
+            z_index: -3.0,
             sampler: ImageSampler::nearest(),
             alpha_mode: AlphaMode2d::Mask(0.5),
         }

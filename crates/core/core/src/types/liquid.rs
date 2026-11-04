@@ -32,4 +32,10 @@ impl MenuItem for Liquid {
             Self::Water => "sprites/tiles/liquids/water.png",
         }
     }
+
+    fn menu_sprite_color(&self) -> Color {
+        match self {
+            Self::Water => Color::WHITE,
+        }
+    }
 }

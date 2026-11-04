@@ -10,9 +10,9 @@ pub enum Terrain {
 
 impl Tile for Terrain {
     fn tile_data(&self, coord: UVec2) -> TileData {
-        let atlas_x = coord.x % 32;
-        let atlas_y = (32 - (coord.y % 32)) % 32;
-        let index = (atlas_x + atlas_y * 32) as u16;
+        let atlas_x = coord.x % 8;
+        let atlas_y = (8 - (coord.y % 8)) % 8;
+        let index = (atlas_x + atlas_y * 8) as u16;
 
         match self {
             Self::Sand => TileData {
@@ -20,7 +20,7 @@ impl Tile for Terrain {
                 ..default()
             },
             Self::Soil => TileData {
-                tileset_index: 1024 + index,
+                tileset_index: 64 + index,
                 ..default()
             },
         }
@@ -41,6 +41,13 @@ impl MenuItem for Terrain {
         match self {
             Self::Soil => "sprites/tiles/terrain/soil.png",
             Self::Sand => "sprites/tiles/terrain/sand.png",
+        }
+    }
+
+    fn menu_sprite_color(&self) -> Color {
+        match self {
+            Self::Soil => Color::WHITE,
+            Self::Sand => Color::WHITE,
         }
     }
 }

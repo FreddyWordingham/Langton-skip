@@ -37,8 +37,8 @@ impl LiquidLayer {
             tile_display_size: TILE_SIZE_UVEC2,
             tileset_path: "atlases/liquid.png".to_owned(),
             array_layout: Some(ImageArrayLayout::GridSize {
-                tile_height_pixels: 32,
-                tile_width_pixels: 32,
+                tile_height_pixels: 128,
+                tile_width_pixels: 128,
             }),
             z_index: -1.0,
             sampler: ImageSampler::nearest(),
